@@ -1,0 +1,15 @@
+<svg id="notifications_ic" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <linearGradient id="linear-gradient" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff7655"/>
+      <stop offset="1" stop-color="#ffdc2a"/>
+    </linearGradient>
+  </defs>
+  <g id="Rectangle_1040" data-name="Rectangle 1040" fill="#fff" stroke="#707070" stroke-width="1" opacity="0">
+    <rect width="24" height="24" stroke="none"/>
+    <rect x="0.5" y="0.5" width="23" height="23" fill="none"/>
+  </g>
+  <g id="Group_111102" data-name="Group 111102" transform="translate(2 1)">
+    <path id="_28" data-name="28" d="M22.783,18.23,21.44,16.3a1.571,1.571,0,0,1-.283-.9V9.856a7.856,7.856,0,1,0-15.711,0V15.4a1.571,1.571,0,0,1-.283.9L3.82,18.23a1.571,1.571,0,0,0,1.163,2.624h4.47a3.928,3.928,0,0,0,7.7,0h4.47a1.571,1.571,0,0,0,1.163-2.624ZM13.3,22.425a2.357,2.357,0,0,1-2.215-1.571h4.431A2.357,2.357,0,0,1,13.3,22.425ZM4.982,19.283a.636.636,0,0,0,.094-.11l1.375-1.98A3.142,3.142,0,0,0,7.017,15.4V9.856a6.285,6.285,0,1,1,12.569,0V15.4a3.142,3.142,0,0,0,.566,1.791l1.375,1.98a.636.636,0,0,0,.094.11Z" transform="translate(-3.415 -2)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

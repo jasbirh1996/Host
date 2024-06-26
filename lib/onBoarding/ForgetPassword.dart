@@ -8,7 +8,7 @@ import 'package:host/onBoarding/controller/ForgetPasswordController.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 
-import '../utils/AppColor.dart';
+import '../utils/app_colors.dart';
 import '../utils/AppComponents.dart';
 import '../utils/AppConstans.dart';
 import '../utils/AppFonts.dart';

@@ -1,42 +1,33 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:host/onBoarding/PermissionScreen.dart';
+import '../../../onBoarding/LoginScreen.dart';
+import 'splash_controller.dart';
 
-import '../utils/SharedPref.dart';
-import 'LoginScreen.dart';
-import 'controller/SplashController.dart';
+class SplashScreen extends GetView<SplashController> {
+  const SplashScreen({super.key});
 
-class SplashScreen extends StatelessWidget {
-  SplashScreen({super.key});
-  var controller = Get.put(SplashController());
   @override
   Widget build(BuildContext context) {
-    // Remove the following line to show the status bar
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge, overlays: []);
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent, // Make the status bar transparent// Use dark icons on the status bar
-      systemNavigationBarColor: Colors.transparent, // Make the system navigation bar transparent
+      statusBarColor: Colors.transparent,
+      // Make the status bar transparent// Use dark icons on the status bar
+      systemNavigationBarColor:
+          Colors.transparent, // Make the system navigation bar transparent
       // Use dark icons on the system navigation bar
     ));
 
-
-
-    Future.delayed(Duration(seconds: 4), () {
-
-
+    Future.delayed(const Duration(seconds: 4), () {
       controller.checkPermission().then((value) {
-        if(value){
+        if (value) {
           Get.offAll(LoginScreen());
-        }else{
+          // Get.offAll(PermissionScreen());
+        } else {
           Get.offAll(PermissionScreen());
         }
-
       });
-
-
     });
 
     return Scaffold(
@@ -52,10 +43,10 @@ class SplashScreen extends StatelessWidget {
                   ),
                 ),
                 child: Center(
-                    child: Image.asset("assets/images/logo.png",
-                      height: 194,
-                    )
-                ),
+                    child: Image.asset(
+                  "assets/images/logo.png",
+                  height: 194,
+                )),
               ),
             ),
           ],

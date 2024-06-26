@@ -9,7 +9,7 @@ import 'package:host/utils/AppFonts.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-import '../utils/AppColor.dart';
+import '../utils/app_colors.dart';
 import '../utils/AppComponents.dart';
 import '../utils/AppConstans.dart';
 import '../utils/AppUtils.dart';

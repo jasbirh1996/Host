@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'AppColor.dart';
+import 'app_colors.dart';
 import 'AppFonts.dart';
 
 class CustomDialog extends StatelessWidget {

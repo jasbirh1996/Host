@@ -1,0 +1,1 @@
+const imagePathSvg = 'assets/images/svg/';

@@ -9,7 +9,7 @@ import 'package:host/utils/AppComponents.dart';
 import 'package:host/utils/AppConstans.dart';
 import 'package:host/utils/AppUtils.dart';
 
-import '../utils/AppColor.dart';
+import '../utils/app_colors.dart';
 import '../utils/SharedPref.dart';
 
 class PermissionScreen extends StatelessWidget {
@@ -30,7 +30,7 @@ class PermissionScreen extends StatelessWidget {
 
     ),
         child: Container(
-          margin: EdgeInsets.only(left: 24,right: 24),
+          margin: const EdgeInsets.only(left: 24,right: 24),
           child: Column(
 
             children: [
@@ -39,11 +39,11 @@ class PermissionScreen extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 41,),
+                  const SizedBox(height: 41,),
                   AppComponents.textWithBold(AppConstants.permissionRequired, 20,color: Colors.black),
-                  SizedBox(height: 8,),
+                  const SizedBox(height: 8,),
                   AppComponents.textWithRegular(AppConstants.allow_this, 12,color: AppColors.greyText),
-                  SizedBox(height: 40,),
+                  const SizedBox(height: 40,),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -68,7 +68,7 @@ class PermissionScreen extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(height: 24,),
+                  const SizedBox(height: 24,),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -93,7 +93,7 @@ class PermissionScreen extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(height: 40,),
+                  const SizedBox(height: 40,),
                   Row(
                     children: [
                       Expanded(
@@ -101,7 +101,7 @@ class PermissionScreen extends StatelessWidget {
                             Get.to(LoginScreen());
 
                           })),
-                      SizedBox(
+                      const SizedBox(
                         width: 24,
                       ),
                       Expanded(
@@ -112,7 +112,7 @@ class PermissionScreen extends StatelessWidget {
 
                             });
 
-                            Get.off(()=>LoginScreen());
+                            Get.offAll(()=>LoginScreen());
                           }),
                         ),
                       ),

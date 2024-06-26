@@ -45,6 +45,9 @@ dependencies:
   geolocator: ^10.1.0
   fluttertoast: ^8.2.2
   motion_toast: ^2.7.9
+  flutter_svg: ^2.0.9
+  intl: ^0.17.0
+  cached_network_image:
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +74,7 @@ flutter_icons:
 flutter:
   assets:
     - assets/images/
+    - assets/images/svg/
 
   fonts:
     - family: Montserrat
@@ -88,6 +92,17 @@ flutter:
     - family: Montserrat-Medium
       fonts:
         - asset: assets/fonts/Montserrat-Medium.ttf
+
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/OpenSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/OpenSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/OpenSans-SemiBold.ttf
+          weight: 600
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

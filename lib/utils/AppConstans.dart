@@ -154,4 +154,9 @@ class AppConstants {
   static const String resendNewOtp = "Resend New OTP";
   static const String newPassword = "New Password";
   static const String confirmPassword = "Confirm New Password";
+
+
+  static const String squareShape = "Square";
+  static const String rectangleShape = "Rectangle";
+  static const String roundShape = "Round";
 }

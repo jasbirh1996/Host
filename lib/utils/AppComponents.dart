@@ -1,11 +1,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'AppColor.dart';
+import 'app_colors.dart';
 import 'AppFonts.dart';
 import 'AppUtils.dart';
 
 class AppComponents {
+
+  static Widget backButton() {
+    return Row(
+      children: [
+        Image.asset(
+          "assets/images/back.png",
+          width: 30,
+          height: 25,
+        ),
+        Text(
+          "Back",
+          style: TextStyle(color: AppColors.carrotRed),
+        ),
+      ],
+    );
+  }
   static Widget getTransparentButton(
       String text, VoidCallback onPressedCallback) {
     return Material(
@@ -99,12 +115,16 @@ class AppComponents {
   }
 
   static Widget textWithRegular(String text, double size,
-      {Color color = AppColors.greyText}) {
+      {Color color = Colors.white , TextAlign? align,int? mxline}) {
     return Text(
+      textAlign:align,
+
       text,
       style: TextStyle(
           fontFamily: AppFonts.montserrat, fontSize: size, color: color),
       softWrap: true,
+      overflow: TextOverflow.ellipsis,
+      maxLines:mxline ,
     );
   }
 

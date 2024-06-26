@@ -1,3 +1,7 @@
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:host/data/model/login/LoginResponse.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPref {
@@ -18,42 +22,26 @@ class SharedPref {
     return prefs.getString(_accessTokenKey);
   }
 
-
   static Future<void> savePermissionState(String state) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString(_permissionState, state);
   }
+
   static Future<String?> getPermissionState() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString(_permissionState);
   }
 
 
-  static Future<void> saveUserDetails(Map<String, dynamic> userDetails) async {
+  saveUserData(Data? userDetails) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    prefs.setString(_accessTokenKey, userDetails['access_token']);
-    prefs.setString(country_code, userDetails['userDetails']['country_code']);
-    prefs.setString(keyUsername, '${userDetails['userDetails']['firstname']} ${userDetails['userDetails']['lastname']}');
-    // Save other user details as needed
+    prefs.setString('userDetails', jsonEncode(userDetails?.toJson()));
   }
 
-
-  static Future<Map<String, dynamic>> getUserDetails() async {
+  Future<Data?> getUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    String accessToken = prefs.getString(_accessTokenKey) ?? '';
-    String country = prefs.getString(country_code) ?? '';
-    String username = prefs.getString(keyUsername) ?? '';
-    // Retrieve other user details as needed
-
-    return {
-      'access_token': accessToken,
-      'country_code': country,
-      'username': username,
-      // Add other user details as needed
-    };
+    var userData = prefs.containsKey('userDetails') ? prefs.getString('userDetails'): null;
+    return userData != null ? Data.fromJson(jsonDecode(userData)) : null;
   }
-
 
 }
