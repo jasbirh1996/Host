@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:host/network/m8/ceremony_detail_response.dart';
 import 'package:host/network/m8/table_order_response.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../data/ApiEndpoints.dart';
 import '../../../network/apiservice.dart';
@@ -14,10 +15,13 @@ class EventController extends GetxController {
   var client = ApiService();
   List<MenuData> creatorList = [];
   var mList = <CeremonyData>[];
+  var pastList = <CeremonyData>[];
+  var scheduleList = <CeremonyData>[];
   var tableOrderList = <TableOrderData>[];
   TableOrderData? tableOrderData;
   var totalOrder = 0;
   CeremonyDetail? ceremonyDetail;
+  var selectTopTabIndex = 0.obs;
   var selectedDropdownItem = 'Select an event'.obs;
   var dropdownList = ['Select an event'];
 
@@ -56,7 +60,7 @@ class EventController extends GetxController {
     });
   }
 
-  getMenu(String ceremonyId, {VoidCallback? callback}) {
+  getMenu(String ceremonyId, {Function(List<MenuData>)? callback}) {
     print("id $ceremonyId");
     var req = {"ceremony_id": ceremonyId};
 
@@ -64,7 +68,7 @@ class EventController extends GetxController {
       if (value.data != null) {
         var data = MenuResponse.fromJson(value.data);
         creatorList = data.data;
-        callback?.call();
+        callback?.call(creatorList);
       } else if (value.loading) {
       } else {
         Fluttertoast.showToast(msg: value.error ?? "something went wrong");
@@ -103,6 +107,55 @@ class EventController extends GetxController {
 
         // something went wrong
       }
+    });
+  }
+
+  getScheduledData({VoidCallback? callback}) {
+    client.postRequest(ApiEndPoint.getScheduledCeremony, null).then((value) {
+      if (value.data != null) {
+        var data = OnGoingCeremonyHost.fromJson(value.data);
+        scheduleList = data.data;
+        callback?.call();
+      } else if (value.loading) {
+      } else {
+        Fluttertoast.showToast(msg: value.error ?? "something went wrong");
+
+        // something went wrong
+      }
+    });
+  }
+
+  getPastData({VoidCallback? callback}) {
+    client.postRequest(ApiEndPoint.getPastCeremony, null).then((value) {
+      if (value.data != null) {
+        var data = OnGoingCeremonyHost.fromJson(value.data);
+        pastList = data.data;
+        callback?.call();
+      } else if (value.loading) {
+      } else {
+        Fluttertoast.showToast(msg: value.error ?? "something went wrong");
+
+        // something went wrong
+      }
+    });
+  }
+  downloadEventLog(){
+
+    client.postRequest(ApiEndPoint.getEventLog,null).then((value) {
+      if(value.data !=null){
+        var data = value.data;
+        launchUrl(Uri.parse(data?["url"]));
+
+
+      }else if(value.loading){
+
+      }else{
+        Fluttertoast.showToast(msg: value.error??"something went wrong");
+
+        // something went wrong
+      }
+
+
     });
   }
 }

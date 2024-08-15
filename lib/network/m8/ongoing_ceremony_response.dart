@@ -148,7 +148,7 @@ class RestaurantId {
   String restaurantDescription;
   String businessLogo;
   int restaurantWorkingSince;
-  int rating;
+  int? rating;
   List<dynamic> restaurantRuningDays;
   String restaurantOpeningFrom;
   String restaurantOpeningTo;

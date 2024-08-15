@@ -23,25 +23,33 @@ class AppComponents {
     );
   }
   static Widget getTransparentButton(
-      String text, VoidCallback onPressedCallback) {
+      String text, VoidCallback onPressedCallback,{
+        Color color = AppColors.carrotRed,
+        Color textColor = AppColors.carrotRed,
+        double defaultHeight = 56,
+        double fontSize = 16,
+        double defaultPaddingHorizontal = 16,
+        double defaultPaddingVertical = 12,
+        String defaultfont = AppFonts.openSansRegular
+  }) {
     return Material(
       color: Colors.transparent,
       child: GestureDetector(
         onTap: onPressedCallback,
         child: Container(
-          height: 56,
+          height: defaultHeight,
           decoration: BoxDecoration(
-            border: Border.all(color: AppColors.carrotRed),
+            border: Border.all(color: color),
             borderRadius: BorderRadius.circular(6.0),
           ),
-          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+          // padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
           child: Center(
             child: Text(
               '$text',
-              style: const TextStyle(
-                  color: AppColors.carrotRed,
-                  fontSize: 16,
-                  fontFamily: AppFonts.montserratRegular),
+              style:  TextStyle(
+                  color: textColor,
+                  fontSize: fontSize,
+                  fontFamily: defaultfont),
             ),
           ),
         ),
@@ -129,14 +137,19 @@ class AppComponents {
   }
 
   static Widget textWithSemiBold(String text, double size,
-      {Color color = Colors.white}) {
+      {Color color = Colors.white,int? mxLines}) {
     return Text(
       text,
       style: TextStyle(
           fontFamily: AppFonts.montserratSemibold,
           fontSize: size,
+
           color: color),
+
       softWrap: true,
+      overflow: TextOverflow.ellipsis,
+      maxLines: mxLines,
+
     );
   }
 

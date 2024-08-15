@@ -38,6 +38,7 @@ class MenuData {
   bool isVej;
   bool isNonVej;
   List<MenuList> menuList;
+  String? currency;
 
   MenuData({
     required this.id,
@@ -59,6 +60,7 @@ class MenuData {
     required this.isVej,
     required this.isNonVej,
     required this.menuList,
+    this.currency
   });
 
   factory MenuData.fromJson(Map<String, dynamic> json) => MenuData(
@@ -80,6 +82,7 @@ class MenuData {
     isActive: json["is_active"],
     isVej: json["is_vej"],
     isNonVej: json["is_non_vej"],
+    currency: json["currency"],
     menuList: List<MenuList>.from(json["menuList"].map((x) => MenuList.fromJson(x))),
   );
 
@@ -102,6 +105,7 @@ class MenuData {
     "is_active": isActive,
     "is_vej": isVej,
     "is_non_vej": isNonVej,
+    "currency":currency,
     "menuList": List<dynamic>.from(menuList.map((x) => x.toJson())),
   };
 }

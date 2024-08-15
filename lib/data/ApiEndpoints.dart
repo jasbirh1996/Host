@@ -11,5 +11,8 @@ class ApiEndPoint {
   static String getCeremonyDetail = "host/getCeremonyDetails";
   static String tableOrder = "host/getOrderByTable";
   static String totalOrderValue = "host/totalOrderDashboard";
+  static String getScheduledCeremony = "host/getScheduledCeremony";
+  static String getPastCeremony = "host/getPastCeremony";
+  static String getEventLog = "host/getEventLog";
 
 }

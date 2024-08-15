@@ -37,7 +37,7 @@ class _MenuState extends State<MenuView> {
 
   @override
   void initState() {
-    controller.getMenu(widget.ceremonyId,callback: (){
+    controller.getMenu(widget.ceremonyId,callback: (data){
       setState(() {
 
       });
@@ -232,37 +232,41 @@ class _MenuState extends State<MenuView> {
                                     ),
 
                                     /// item name and description
-                                    Column(
-                                      crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                      children: [
-                                        AppComponents.textWithSemiBold(
-                                            AppUtils.capitalizeFirstLetter(
-                                                itemData.dishName),
-                                            14,color: Colors.black),
-                                        SizedBox(
-                                          height: 8,
-                                        ),
-                                        Container(
-                                            width: 100,
-                                            child: AppComponents.textWithRegular(
-                                                itemData.description, 10,
-                                                mxline: 2,
-                                                color: AppColors.grey)),
-                                        Container(
-                                            width: 100,
-                                            child: AppComponents.textWithBold(
-                                              "\$ "+ itemData.price.toString(), 20,
+                                    Expanded(
+                                      child:
+                                      Column(
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            child: AppComponents.textWithSemiBold(
+                                                AppUtils.capitalizeFirstLetter(
+                                                    itemData.dishName),
+                                                14,color: Colors.black,mxLines: 2),
+                                          ),
+                                          SizedBox(
+                                            height: 4,
+                                          ),
+                                          Container(
 
-                                              color: AppColors.carrotRed,)),
-                                      ],
+                                              child: AppComponents.textWithRegular(
+                                                  itemData.description, 10,
+                                                  mxline: 2,
+                                                  color: AppColors.grey)),
+                                          Container(
+
+                                              child: AppComponents.textWithBold(
+                                                "${controller.creatorList.first.currency} "+ itemData.price.toString(), 20,
+
+                                                color: AppColors.carrotRed,)),
+                                        ],
+                                      ),
                                     ),
-                                    Spacer(),
+
 
                                     /// add to cart button and + - button to add or remove cart based on condition
                                     Container(
                                       margin: EdgeInsets.only(right: 8),
-
                                       width: 35,
                                       height: 17,
                                       decoration: BoxDecoration(
